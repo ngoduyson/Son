@@ -1,0 +1,89 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.example.sonyama.dayseeson"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+
+        def STRING = "String"
+        def ENDPOINT = "SERVER_ENDPOINT"
+        def ENDPOINT_STAGING = "\"https://benlly-api.test.curations.jp/\""
+        def ENDPOINT_PRODUCTION = "\"https://api.daysee.jp/\""
+        def ENDPOINT_DEVELOP = "\"https://benlly.framgia.vn/\""
+        def ENDPOINT_LOCAL = "\"http://192.168.1.71:8000/\""
+
+        debug {
+            buildConfigField STRING, ENDPOINT, ENDPOINT_STAGING
+            versionNameSuffix '-Staging'
+        }
+
+        debugDevelop {
+            buildConfigField STRING, ENDPOINT, ENDPOINT_DEVELOP
+            versionNameSuffix '-Develop'
+            debuggable true
+        }
+
+        debugLocal {
+            buildConfigField STRING, ENDPOINT, ENDPOINT_LOCAL
+            versionNameSuffix '-Local'
+            debuggable true
+        }
+
+        debugProduction {
+            buildConfigField STRING, ENDPOINT, ENDPOINT_PRODUCTION
+            versionNameSuffix '-Production'
+            debuggable true
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
+    compile 'com.squareup.okhttp3:okhttp:3.0.0-RC1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.0.0-RC1'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    compile 'de.greenrobot:eventbus:3.0.0-beta1'
+    compile 'com.android.support:support-v4:23.1.1'
+}
