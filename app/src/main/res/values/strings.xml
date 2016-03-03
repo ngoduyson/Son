@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">DayseeSon</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Setting -->
+    <string name="title_setting">設定</string>
+    <string name="title_channel_list">チャンネル一覧</string>
+    <string name="title_recipe_list">アイディア一覧</string>
+    <string name="title_mobile_data">モバイルデータ通信</string>
+    <string name="title_policy">利用規約・プライバシーポリシー</string>
+    <string name="title_help">ヘルプ</string>
+    <string name="title_qa">お問い合わせ</string>
 </resources>

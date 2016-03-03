@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/setting_toobar_color"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/title_setting"
+            android:textColor="@android:color/white" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/arrow_width"
+        android:paddingRight="@dimen/arrow_width"
+        android:showDividers="middle|end">
+
+        <LinearLayout
+            android:id="@+id/linear_channel_list"
+            style="@style/SettingLayout"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true">
+
+            <TextView
+                style="@style/SettingTextView"
+                android:text="@string/title_channel_list"  />
+            <ImageView
+                style="@style/SettingArrowImageView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_recipe_list"
+            style="@style/SettingLayout"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true">
+
+            <TextView
+                style="@style/SettingTextView"
+                android:text="@string/title_recipe_list" />
+            <ImageView
+                style="@style/SettingArrowImageView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_mobile_data"
+            style="@style/SettingLayout">
+
+            <TextView
+                style="@style/SettingTextView"
+                android:text="@string/title_mobile_data" />
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/switch_mobile_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_policy"
+            style="@style/SettingLayout"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/SettingTextView"
+                android:text="@string/title_policy" />
+            <ImageView
+                style="@style/SettingArrowImageView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_qa"
+            style="@style/SettingLayout"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true">
+
+            <TextView
+                style="@style/SettingTextView"
+                android:text="@string/title_qa" />
+            <ImageView
+                style="@style/SettingArrowImageView" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

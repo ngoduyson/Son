@@ -17,4 +17,29 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="SettingTextView">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/setting_text_size</item>
+        <item name="android:textColor">@color/setting_text_color</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">@dimen/margin_left_text</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_text</item>
+        <item name="android:layout_marginBottom">@dimen/margin_top_text</item>
+    </style>
+
+    <style name="SettingArrowImageView">
+        <item name="android:layout_width">@dimen/arrow_width</item>
+        <item name="android:layout_height">@dimen/arrow_width</item>
+        <item name="android:layout_marginRight">@dimen/arrow_margin_right</item>
+        <item name="android:src">@drawable/next_icon</item>
+    </style>
+
+    <style name="SettingLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
 </resources>

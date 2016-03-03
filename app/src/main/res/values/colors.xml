@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Setting -->
+    <color name="setting_toobar_color">#a4a7ad</color>
+    <color name="setting_text_color">#6a7278</color>
+    <color name="setting_divider">#efeff4</color>
 </resources>
