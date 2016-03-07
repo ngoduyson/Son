@@ -10,4 +10,18 @@
     <string name="title_policy">利用規約・プライバシーポリシー</string>
     <string name="title_help">ヘルプ</string>
     <string name="title_qa">お問い合わせ</string>
+    <string name="title_send_email">Send mail...</string>
+    <string name="title_email_support">daysee-support@curations.jp</string>
+    <string name="title_email_subject">件名: Dayseeに関するお問い合わせ</string>
+    <string name="title_body">本文:</string>
+    <string name="title_line">------</string>
+    <string name="title_not_remove_below">ここから先は削除しないでください。</string>
+    <string name="title_os">OS:</string>
+    <string name="title_benlly_version">Version:</string>
+    <string name="title_user_id">UserID:</string>
+    <string name="action_close">Close</string>
+    <!-- Dialog -->
+    <string name="msg_message">モバイルデータ通信を許可しますか？\n\n登録したアイディアがカメラを利用する場合に、バックグラウンドでモバイルデータ通信を使用します。</string>
+    <string name="msg_ok">OK</string>
+    <string name="msg_cancel">キャンセル</string>
 </resources>

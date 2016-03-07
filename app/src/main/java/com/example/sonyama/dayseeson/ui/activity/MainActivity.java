@@ -41,8 +41,9 @@ public class MainActivity extends BaseActivity {
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToSettingActivity = new Intent(getApplicationContext(), SettingActivity.class);
-                startActivity(goToSettingActivity);
+                Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up, R.anim.no_change);
             }
         });
 

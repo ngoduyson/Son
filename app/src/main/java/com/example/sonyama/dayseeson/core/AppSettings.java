@@ -15,6 +15,7 @@ public class AppSettings {
     private static AppSettings sAppSettings;
     private static SharedPreferences sPreferences;
     private static final String PREF_USER = "user";
+    private static final String PREF_MOBILE_DATA = "mobile_data";
     private User mUser;
 
     public AppSettings(Context context) {
@@ -52,5 +53,13 @@ public class AppSettings {
     public void setUser(User user) {
         this.mUser = user;
         sPreferences.edit().putString(PREF_USER, new Gson().toJson(user)).apply();
+    }
+
+    public static boolean isMobileData() {
+        return sPreferences.getBoolean(PREF_MOBILE_DATA, false);
+    }
+
+    public static void setMobileData(boolean isMobileData) {
+        sPreferences.edit().putBoolean(PREF_MOBILE_DATA, isMobileData).apply();
     }
 }
