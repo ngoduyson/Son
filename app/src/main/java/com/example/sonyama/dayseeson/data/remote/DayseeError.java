@@ -1,4 +1,4 @@
-package com.example.sonyama.dayseeson.core.model;
+package com.example.sonyama.dayseeson.data.remote;
 
 import org.json.JSONObject;
 

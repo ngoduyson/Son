@@ -4,8 +4,8 @@ package com.example.sonyama.dayseeson.util;
 import android.content.Context;
 
 import com.example.sonyama.dayseeson.BuildConfig;
-import com.example.sonyama.dayseeson.core.AppSettings;
-import com.example.sonyama.dayseeson.core.DayseeService;
+import com.example.sonyama.dayseeson.data.local.AppSettings;
+import com.example.sonyama.dayseeson.data.remote.DayseeService;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

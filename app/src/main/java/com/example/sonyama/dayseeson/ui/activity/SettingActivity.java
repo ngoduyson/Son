@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.CompoundButton;
 
 import com.example.sonyama.dayseeson.R;
-import com.example.sonyama.dayseeson.core.AppSettings;
-import com.example.sonyama.dayseeson.core.Constants;
+import com.example.sonyama.dayseeson.data.local.AppSettings;
+import com.example.sonyama.dayseeson.data.local.Constants;
 import com.example.sonyama.dayseeson.ui.base.BaseActivity;
 import com.example.sonyama.dayseeson.util.Utils;
 

@@ -3,14 +3,13 @@ package com.example.sonyama.dayseeson.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.sonyama.dayseeson.R;
-import com.example.sonyama.dayseeson.core.AppSettings;
-import com.example.sonyama.dayseeson.core.model.DayseeCallback;
-import com.example.sonyama.dayseeson.core.model.DayseeError;
+import com.example.sonyama.dayseeson.data.local.AppSettings;
+import com.example.sonyama.dayseeson.data.remote.DayseeCallback;
+import com.example.sonyama.dayseeson.data.remote.DayseeError;
 import com.example.sonyama.dayseeson.data.model.User;
 import com.example.sonyama.dayseeson.ui.base.BaseActivity;
 import com.example.sonyama.dayseeson.util.DayseeServiceUtil;

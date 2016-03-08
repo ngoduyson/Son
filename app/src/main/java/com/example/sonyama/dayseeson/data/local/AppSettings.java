@@ -1,4 +1,4 @@
-package com.example.sonyama.dayseeson.core;
+package com.example.sonyama.dayseeson.data.local;
 
 import android.content.Context;
 import android.content.SharedPreferences;

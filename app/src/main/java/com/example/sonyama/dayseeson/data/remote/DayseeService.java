@@ -1,4 +1,4 @@
-package com.example.sonyama.dayseeson.core;
+package com.example.sonyama.dayseeson.data.remote;
 
 import com.example.sonyama.dayseeson.data.model.User;
 

@@ -1,4 +1,4 @@
-package com.example.sonyama.dayseeson.core;
+package com.example.sonyama.dayseeson.data.local;
 
 /**
  * Created by sonyama on 3/7/16.
