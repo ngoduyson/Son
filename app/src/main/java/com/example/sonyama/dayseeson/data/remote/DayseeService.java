@@ -1,5 +1,6 @@
 package com.example.sonyama.dayseeson.data.remote;
 
+import com.example.sonyama.dayseeson.data.model.Token;
 import com.example.sonyama.dayseeson.data.model.User;
 
 import retrofit2.Call;
@@ -13,4 +14,7 @@ public interface DayseeService {
 
     @POST("v1.1/users")
     Call<User> login(@Query("uuid") String uuid);
+
+    @POST("/v1.1/push_notification")
+    Call<Token> registToken(@Query("device") String device, @Query("token") String token);
 }

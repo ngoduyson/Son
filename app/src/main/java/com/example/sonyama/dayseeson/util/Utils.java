@@ -6,6 +6,13 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.example.sonyama.dayseeson.R;
+import com.example.sonyama.dayseeson.data.local.Constants;
+import com.example.sonyama.dayseeson.service.RegistrationTokenService;
+import com.google.android.gms.gcm.GcmNetworkManager;
+import com.google.android.gms.gcm.OneoffTask;
+import com.google.android.gms.gcm.Task;
+
+import java.util.UUID;
 
 /**
  * Created by sonyama on 3/7/16.
@@ -31,5 +38,20 @@ public class Utils {
         } catch(ActivityNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void registerGcm(Context context) {
+        GcmNetworkManager gcmNetworkManager = GcmNetworkManager.getInstance(context);
+        OneoffTask task = new OneoffTask.Builder()
+                .setService(RegistrationTokenService.class)
+                .setTag(Constants.TASK_TAG_REGISTER_TOKEN)
+                .setExecutionWindow(0, 1)
+                .setRequiredNetwork(Task.NETWORK_STATE_CONNECTED)
+                .build();
+        gcmNetworkManager.schedule(task);
+    }
+
+    public static String getUUID() {
+        return UUID.randomUUID().toString() + System.currentTimeMillis();
     }
 }

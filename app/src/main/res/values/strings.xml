@@ -24,4 +24,5 @@
     <string name="msg_message">モバイルデータ通信を許可しますか？\n\n登録したアイディアがカメラを利用する場合に、バックグラウンドでモバイルデータ通信を使用します。</string>
     <string name="msg_ok">OK</string>
     <string name="msg_cancel">キャンセル</string>
+    <string name="msg_google_play_service_not_support">Google Play services is not supported</string>
 </resources>
