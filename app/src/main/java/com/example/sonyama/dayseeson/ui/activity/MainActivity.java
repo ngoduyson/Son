@@ -36,8 +36,8 @@ public class MainActivity extends BaseActivity implements MainActivityInterface 
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO : for testing SettingActivity
-                startActivity(new Intent(MainActivity.this, SettingActivity.class));
+                // TODO : for testing ChannelActivity
+                startActivity(new Intent(MainActivity.this, ChannelActivity.class));
                 overridePendingTransition(R.anim.slide_up, R.anim.no_change);
             }
         });

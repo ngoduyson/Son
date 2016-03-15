@@ -12,10 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 
+import com.example.sonyama.dayseeson.BuildConfig;
 import com.example.sonyama.dayseeson.R;
 import com.example.sonyama.dayseeson.data.local.AppSettings;
 import com.example.sonyama.dayseeson.data.local.Constants;
 import com.example.sonyama.dayseeson.ui.base.BaseActivity;
+import com.example.sonyama.dayseeson.util.DialogListener;
+import com.example.sonyama.dayseeson.util.DialogUtil;
 import com.example.sonyama.dayseeson.util.Utils;
 
 import butterknife.Bind;
@@ -27,16 +30,13 @@ import butterknife.OnClick;
  */
 public class SettingActivity extends BaseActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener {
-
-    @Bind(R.id.toolbar)
-    Toolbar mToolbar;
-    @Bind(R.id.switch_mobile_data)
-    SwitchCompat mSwitchMobileData;
+    @Bind(R.id.toolbar) Toolbar mToolbar;
+    @Bind(R.id.switch_mobile_data) SwitchCompat mSwitchMobileData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
         initViews();
     }
@@ -68,6 +68,12 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+    }
+
     @OnClick({R.id.linear_channel_list, R.id.linear_recipe_list, R.id.linear_policy, R.id.linear_qa})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -79,9 +85,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 Utils.openUrl(this, Constants.POLICY_URL);
                 break;
             case R.id.linear_qa:
-                Utils.sendEmail(this, getString(R.string.title_email_support),
-                                getString(R.string.title_email_subject),
-                        getEmailBody());
+                Utils.sendEmail(this, getString(R.string.title_email_support), getString(R.string.title_email_subject), getEmailBody());
                 break;
             default:
                 break;
@@ -90,31 +94,30 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     private String getEmailBody() {
         StringBuilder emailBody = new StringBuilder("");
-        emailBody.append(getString(R.string.title_body) + "¥n");
-        emailBody.append("¥n¥n¥n");
-        emailBody.append(getString(R.string.title_line) + "¥n");
-        emailBody.append(getString(R.string.title_not_remove_below) + "¥n");
-        emailBody.append(getString(R.string.title_os) + "¥n");
-        emailBody.append(getString(R.string.title_benlly_version)
-                + getDeviceName()
-                + "/" + Build.VERSION.RELEASE + "¥n");
+        emailBody.append(getString(R.string.title_body) + "\n");
+        emailBody.append("\n\n\n");
+        emailBody.append(getString(R.string.title_line) + "\n");
+        emailBody.append(getString(R.string.title_not_remove_below) + "\n");
+        emailBody.append(getString(R.string.title_os) + getDeviceName() + "/" + Build.VERSION.RELEASE + "\n");
+        emailBody.append(getString(R.string.title_benlly_version) + BuildConfig.VERSION_NAME + "\n");
         emailBody.append(getString(R.string.title_user_id));
         return emailBody.toString();
     }
 
-    private String getDeviceName() {
+    public String getDeviceName() {
         String manufacturer = Build.MANUFACTURER;
         String model = Build.MODEL;
         if (model.startsWith(manufacturer)) {
-            return capitalize(manufacturer);
+            return capitalize(model);
         } else {
             return capitalize(manufacturer) + " " + model;
         }
     }
 
     private String capitalize(String s) {
-        if (s == null || s.length() == 0)
+        if (s == null || s.length() == 0) {
             return "";
+        }
         char first = s.charAt(0);
         if (Character.isUpperCase(first)) {
             return s;
@@ -139,18 +142,16 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void showMobileDataDialog() {
-        Resources resources = getResources();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(resources.getString(R.string.msg_message));
-        builder.setCancelable(true);
-        builder.setPositiveButton(resources.getString(R.string.msg_ok),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        AppSettings.getInstance().setMobileData(true);
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        DialogUtil.show(this, R.string.msg_message, new DialogListener() {
+            @Override
+            public void onOK() {
+                AppSettings.getInstance().setMobileData(true);
+            }
+
+            @Override
+            public void onCancel() {
+                mSwitchMobileData.setChecked(false);
+            }
+        });
     }
 }

@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:divider="@drawable/divider"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/arrow_width"
-        android:paddingRight="@dimen/arrow_width"
+        android:paddingLeft="@dimen/setting_padding_left"
+        android:paddingRight="@dimen/setting_padding_left"
         android:showDividers="middle|end">
 
         <LinearLayout

@@ -25,9 +25,9 @@ android {
 
         def STRING = "String"
         def ENDPOINT = "SERVER_ENDPOINT"
-        def ENDPOINT_STAGING = "\"https://benlly-api.test.curations.jp/\""
+        def ENDPOINT_STAGING = "\"http://benlly-api.test.curations.jp/\""
         def ENDPOINT_PRODUCTION = "\"https://api.daysee.jp/\""
-        def ENDPOINT_DEVELOP = "\"https://benlly.framgia.vn/\""
+        def ENDPOINT_DEVELOP = "\"http://benlly.framgia.vn/\""
         def ENDPOINT_LOCAL = "\"http://192.168.1.71:8000/\""
 
         debug {

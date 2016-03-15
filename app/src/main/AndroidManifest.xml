@@ -52,6 +52,10 @@
             android:name=".ui.activity.SettingActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.activity.ChannelActivity"
+            android:screenOrientation="portrait" />
+
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"

@@ -3,10 +3,23 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-
+    <!-- Setting -->
     <dimen name="margin_left_text">5dp</dimen>
-    <dimen name="arrow_width">10dp</dimen>
+    <dimen name="arrow_width">25dp</dimen>
     <dimen name="arrow_margin_right">15dp</dimen>
     <dimen name="margin_top_text">20dp</dimen>
-    <dimen name="setting_text_size">14dp</dimen>
+    <dimen name="setting_text_size">14sp</dimen>
+    <dimen name="setting_padding_left">10dp</dimen>
+    <!-- Channel -->
+    <dimen name="image_loading_width">30dp</dimen>
+    <dimen name="green_check">25dp</dimen>
+    <dimen name="channel_icon_width">40dp</dimen>
+    <dimen name="channel_icon_margin">20dp</dimen>
+    <dimen name="channel_icon_regist_width">25dp</dimen>
+    <dimen name="channel_icon_regist_margin">10dp</dimen>
+    <dimen name="channel_name_text">16sp</dimen>
+    <dimen name="channel_divider_height">1dp</dimen>
+    <dimen name="channel_divider_margin">10dp</dimen>
+    <dimen name="channel_category_icon_margin_top">5dp</dimen>
+    <dimen name="channel_category_text_margin_left">20dp</dimen>
 </resources>

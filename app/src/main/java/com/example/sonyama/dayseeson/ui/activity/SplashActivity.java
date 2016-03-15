@@ -18,6 +18,7 @@ import com.example.sonyama.dayseeson.data.remote.DayseeError;
 import com.example.sonyama.dayseeson.ui.activity.interfaces.SplashActivityInterface;
 import com.example.sonyama.dayseeson.ui.base.BaseActivity;
 import com.example.sonyama.dayseeson.util.DayseeServiceUtil;
+import com.example.sonyama.dayseeson.util.DialogUtil;
 import com.example.sonyama.dayseeson.util.L;
 import com.example.sonyama.dayseeson.util.Utils;
 import com.google.android.gms.common.ConnectionResult;
@@ -33,10 +34,8 @@ import okhttp3.Response;
  * Created by sonyama on 3/14/16.
  */
 public class SplashActivity extends BaseActivity implements SplashActivityInterface {
-
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    @Bind(R.id.pdLoading)
-    ProgressBar mProgressBar;
+    @Bind(R.id.pdLoading) ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,24 +79,15 @@ public class SplashActivity extends BaseActivity implements SplashActivityInterf
                         @Override
                         public void onResponse(User data) {
                             super.onResponse(data);
-                            L.d("User Created -> " + data);
+                            L.d("User created -> " + data);
                             AppSettings.getInstance().setUser(data);
                             onLoginSuccess();
                         }
-
                         @Override
                         public void onFailure(List<DayseeError> errors) {
                             super.onFailure(errors);
-                            StringBuilder errorMessage = new StringBuilder("");
-                            for (DayseeError error : errors) {
-                                L.d("onFailure -> " + error);
-                                if (!TextUtils.isEmpty(error.getMessage())) {
-                                    errorMessage.append(error.getMessage() + "¥n");
-                                }
-                            }
-                            onLoginFail(errorMessage.toString());
+                            onLoginFail(errors);
                         }
-
                     });
         }
     }
@@ -111,9 +101,9 @@ public class SplashActivity extends BaseActivity implements SplashActivityInterf
     }
 
     @Override
-    public void onLoginFail(String error) {
+    public void onLoginFail(List<DayseeError> errors) {
         hideLoading();
-        showErrorDialog(error);
+        DialogUtil.showErrorDialog(this, errors);
     }
 
     @Override
@@ -151,21 +141,6 @@ public class SplashActivity extends BaseActivity implements SplashActivityInterf
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Utils.openUrl(SplashActivity.this, Constants.URL_GOOGLE_PLAY_SERVICES);
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
-
-    private void showErrorDialog(String errorMessage) {
-        Resources resources = getResources();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(errorMessage);
-        builder.setCancelable(true);
-        builder.setPositiveButton(resources.getString(R.string.msg_ok),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
                 });
